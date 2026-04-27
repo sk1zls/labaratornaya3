@@ -61,7 +61,7 @@ classDiagram
         +create_weekly_report(date) dict
         +create_monthly_report(int, int) dict
     }
-'''
+```
 
 ## Скриншоты работы приложения
 
