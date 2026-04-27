@@ -61,3 +61,12 @@ classDiagram
         +create_weekly_report(date) dict
         +create_monthly_report(int, int) dict
     }
+## Скриншоты работы приложения
+
+![Главное меню](screenshots/menu.png)
+
+![Добавление расхода](screenshots/add_expense.png)
+
+![Отчёт за день](screenshots/report.png)
+
+![Круговая диаграмма расходов](screenshots/chart.png)
