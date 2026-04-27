@@ -45,22 +45,28 @@ classDiagram
         +get_by_date_range(date, date) List[Expense]
     }
     class BudgetLimitRepository {
-        +set_limit(BudgetLimit)
+        +set_limit(BudgetLimit) void
         +get_limit(str, int, int) BudgetLimit
     }
     class ExpenseService {
-        +add_expense(...)
-        +get_total_for_category_month(...)
-        +get_expenses_by_date_range(...)
+        +add_expense(amount, category, date, desc) bool
+        +get_total_for_category_month(cat, year, month) float
+        +get_expenses_by_date_range(start, end) List[Expense]
     }
     class BudgetService {
-        +set_budget(...)
+        +set_budget(category, limit, month, year) void
     }
     class ReportFactory {
         +create_daily_report(date) dict
         +create_weekly_report(date) dict
-        +create_monthly_report(int, int) dict
+        +create_monthly_report(year, month) dict
     }
+
+    ExpenseService --> ExpenseRepository : uses
+    BudgetService --> BudgetLimitRepository : uses
+    ReportFactory --> ExpenseService : uses
+    Expense --> ExpenseRepository : persisted
+    BudgetLimit --> BudgetLimitRepository : persisted
 ```
 
 ## Скриншоты работы приложения
